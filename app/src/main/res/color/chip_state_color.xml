@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- v1.6.0:选中态由亮黄(sunshine)+薄荷改成**主色淡底**,与整体色系统一 -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/sunshine" android:state_checked="true" />
-    <item android:color="@color/mint" />
+    <item android:color="@color/primary_tint" android:state_checked="true" />
+    <item android:color="@color/white" />
 </selector>

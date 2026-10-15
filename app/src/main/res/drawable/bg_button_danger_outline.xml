@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.6.0:重置类(破坏性)按钮 = 白底 + 深橘描边。
+    与 bg_button_secondary(白底+深蓝描边)是同一套结构,只换色相 ——
+    这样设置页 4 个按钮只有"普通/危险"两种观感,不再四不像。
+    用 orange_deep 而非 tangerine:后者太亮,做文字/描边对比度不足。
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="@dimen/radius_button" />
+    <solid android:color="@color/white" />
+    <stroke android:width="2dp" android:color="@color/orange_deep" />
+    <padding android:left="16dp" android:top="12dp" android:right="16dp" android:bottom="12dp" />
+</shape>

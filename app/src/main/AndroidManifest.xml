@@ -8,24 +8,34 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
+    <!-- 短震动:游戏答错反馈 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyWord"
         tools:targetApi="31">
 
+        <!-- v1.4.0:开机页(launcher) -->
         <activity
-            android:name="com.studyword.literacy.ui.MainActivity"
-            android:exported="true">
+            android:name="com.studyword.literacy.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.StudyWord">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.studyword.literacy.ui.MainActivity"
+            android:exported="true" />
 
         <activity
             android:name="com.studyword.literacy.ui.ProgressActivity"
@@ -37,6 +47,10 @@
 
         <activity
             android:name="com.studyword.literacy.ui.CharacterLibraryActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.studyword.literacy.game.GameActivity"
             android:exported="false" />
 
     </application>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 scripts/build_launcher_icon.py 生成:取自设计稿四角背景色,
+     与自适应图标前景的边缘同色,因此背景层与前景之间没有接缝 -->
+<resources>
+    <color name="ic_launcher_background">#FDF3EA</color>
+</resources>

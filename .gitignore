@@ -97,3 +97,43 @@ lint/tmp/
 
 # Generated PDFs (for testing)
 *.pdf
+
+# 调试用的本地截图/UI 转储(不入版本)
+debug_*.png
+game_*.png
+main_*.png
+sw_*.png
+ui_*.xml
+ui*.xml
+dump.sh
+sw_*.json
+
+# v1.5.0 补齐:以下调试产物此前**未被任何规则覆盖**,
+# 只是因为没人执行 git add -A 才没进版本库(工作区曾有 108 条未跟踪项)。
+# 一次"顺手全加"就会把几十个 UI dump 和 ~56MB 截图提交进去。
+dh*.xml
+window_dump*.xml
+dlib*.xml
+dset.xml
+dump*.xml
+samples.txt
+
+# 截图目录:只保留 README 引用的 6 张,其余本地产物不入库
+ScreenShot/*.png
+!ScreenShot/首页.png
+!ScreenShot/首页-认识啦.png
+!ScreenShot/字库总览.png
+!ScreenShot/学习进度1.png
+!ScreenShot/学习进度2.png
+!ScreenShot/设置中心.png
+# 历史版本截图子目录(如 ScreenShot/v1.4.0/)一律不入库
+ScreenShot/*/
+_screenshots/
+
+# 签名与本地密钥(发布用,绝不入库)
+keystore.properties
+*.jks
+*.keystore
+
+# Python
+__pycache__/

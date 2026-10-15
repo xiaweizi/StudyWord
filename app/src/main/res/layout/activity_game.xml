@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.5.0 游戏页布局重构:
+
+    1. 【修 bug】整屏内容包进 NestedScrollView。
+       真机复现:横屏(可用高度约 360dp)时 optionA~D / optionsGrid / skipButton
+       **全部被挤出屏幕**,游戏无法作答也无法跳过 —— 因为原布局根节点是
+       ConstraintLayout 且固定内容约 690dp,没有任何滚动容器。
+       抽屉(activity_main)有同类问题。
+
+    2. 固定高度改为 minHeight + wrap_content,系统字体放大到 1.5x 时文字不再被裁切。
+
+    3. 硬编码文案全部改用 @string(其中 game_title / game_listen_label 等
+       都是 v1.1.0~v1.3.0 就写好、却一直没被引用的死资源)。
+
+    4. 撒花层与结算卡留在滚动容器之外,保持"全屏覆盖、不随内容滚动"的原行为。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient"
+    tools:context=".game.GameActivity">
+
+    <!-- ============ 可滚动内容区 ============ -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/gameScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 顶栏:返回 + 标题 + 进度 -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/game_title"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/backButton"
+                app:layout_constraintEnd_toStartOf="@id/progressText"
+                app:layout_constraintStart_toEndOf="@id/backButton"
+                app:layout_constraintTop_toTopOf="@id/backButton" />
+
+            <TextView
+                android:id="@+id/progressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_pill"
+                android:paddingStart="14dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="6dp"
+                android:text="@string/game_progress_placeholder"
+                android:textColor="@color/deep_blue"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/backButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/backButton" />
+
+            <!-- 模式切换(中文:听音/看拼音;英文:听字母/听单词,按语种显隐) -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/modeChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backButton"
+                app:selectionRequired="true"
+                app:singleLine="false"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipListen"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_listen_label" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPinyin"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_pinyin_label" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipListenLetter"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_listen_letter_label"
+                    android:visibility="gone" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipListenWord"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_listen_word_label"
+                    android:visibility="gone" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/difficultyChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/modeChipGroup"
+                app:selectionRequired="true"
+                app:singleLine="false"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEasy"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_easy" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMedium"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_medium" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipHard"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_hard" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- 题目区:听音模式显示喇叭按钮;拼音模式显示大字拼音 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/questionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="@dimen/radius_card"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/difficultyChipGroup">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_playful"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <ImageButton
+                        android:id="@+id/speakPromptButton"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/bg_status_pill"
+                        android:contentDescription="@string/cd_speak_prompt"
+                        android:padding="26dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_speaker"
+                        app:tint="@color/deep_blue" />
+
+                    <TextView
+                        android:id="@+id/speakPromptHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/game_speak_hint"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/pinyinPrompt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/game_pinyin_placeholder"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="48sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!--
+                4 选项 2x2。
+                v1.5.0:容器由 GridLayout 改为 LinearLayout 嵌套。
+                原因:GridLayout 的 layout_rowWeight 在本页实测未按行均分
+                (第一行吃满整格,第二行的 optionC/D 被裁出屏幕),
+                而 LinearLayout 的 weight 行为确定,且在横屏布局里可以用同一套结构,
+                避免同一 id 在不同配置下类型不一致导致 ViewBinding 转型失败。
+            -->
+            <LinearLayout
+                android:id="@+id/optionsGrid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/questionCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/optionA"
+                        style="@style/Widget.StudyWord.OptionButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/space_s"
+                        android:layout_marginBottom="@dimen/space_s"
+                        android:layout_weight="1"
+                        android:minHeight="92dp"
+                        android:text="@string/game_option_placeholder"
+                        android:textSize="44sp"
+                        android:fontFamily="@font/studyword_kai" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/optionB"
+                        style="@style/Widget.StudyWord.OptionButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/space_s"
+                        android:layout_weight="1"
+                        android:minHeight="92dp"
+                        android:text="@string/game_option_placeholder"
+                        android:textSize="44sp"
+                        android:fontFamily="@font/studyword_kai" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/optionC"
+                        style="@style/Widget.StudyWord.OptionButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/space_s"
+                        android:layout_weight="1"
+                        android:minHeight="92dp"
+                        android:text="@string/game_option_placeholder"
+                        android:textSize="44sp"
+                        android:fontFamily="@font/studyword_kai" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/optionD"
+                        style="@style/Widget.StudyWord.OptionButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="92dp"
+                        android:text="@string/game_option_placeholder"
+                        android:textSize="44sp"
+                        android:fontFamily="@font/studyword_kai" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 跳过按钮(v1.5.0:补 bottom 约束,横屏滚动到底时不再溢出父容器) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/skipButton"
+                style="@style/Widget.StudyWord.SecondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp"
+                android:minHeight="@dimen/touch_target"
+                android:text="@string/game_skip"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/optionsGrid" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============ 撒花覆盖层(不随内容滚动) ============ -->
+    <com.studyword.literacy.ui.ConfettiOverlayView
+        android:id="@+id/confettiOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <!-- ============ 结算卡(全屏透明覆盖,内容居中且可滚动) ============ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/resultCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/bg_card_playful"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="32dp">
+
+                    <TextView
+                        android:id="@+id/resultEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/game_emoji_placeholder"
+                        android:textSize="56sp"
+                    android:importantForAccessibility="no" />
+
+                    <TextView
+                        android:id="@+id/resultStars"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/game_stars_placeholder"
+                        android:textSize="40sp"
+                    android:importantForAccessibility="no" />
+
+                    <TextView
+                        android:id="@+id/resultTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/game_result_title_placeholder"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/resultScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/game_score_placeholder"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/replayButton"
+                        style="@style/Widget.StudyWord.PrimaryButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:minHeight="@dimen/touch_target"
+                        android:text="@string/game_replay"
+                        android:textSize="18sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/exitButton"
+                        style="@style/Widget.StudyWord.SecondaryButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:minHeight="@dimen/touch_target"
+                        android:text="@string/game_exit"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

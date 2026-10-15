@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.6.0:统一清爽浅色 —— 背景降饱和。
+    原 sky_blue(#A7D8FF) → lavender(#F0D9FF) 太艳,与卡片/按钮抢视觉;
+    现在改为接近白的浅蓝 → 浅紫,让白色卡片成为唯一焦点。
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <gradient
-        android:startColor="@color/sky_blue"
-        android:endColor="@color/lavender"
-        android:angle="45" />
+        android:startColor="@color/bg_top"
+        android:endColor="@color/bg_bottom"
+        android:angle="270" />
 </shape>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.6.0:卡片改**纯白 + 1dp 极细描边**。
+    原来是 white→mint→white 的薄荷绿渐变,压在浅紫背景上会发灰发脏
+    (真机截图确认),这是"UI 难看"最主要的来源。
+    白色卡片配浅描边在浅色背景上干净且有层次,也不依赖阴影。
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <corners android:radius="24dp" />
-    <gradient
-        android:startColor="@color/white"
-        android:centerColor="@color/mint"
-        android:endColor="@color/white"
-        android:angle="90" />
+    <corners android:radius="@dimen/radius_card" />
+    <solid android:color="@color/white" />
+    <stroke android:width="1dp" android:color="@color/border_soft" />
     <padding
         android:left="12dp"
         android:top="12dp"

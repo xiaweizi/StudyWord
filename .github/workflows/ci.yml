@@ -1,0 +1,63 @@
+name: CI
+
+# v1.5.0 新增:此前项目没有任何 CI,lint 从未在提交前跑过 ——
+# 而 Android 8/9 启动崩溃（icu Transliterator 需 API 29 而 minSdk 26）
+# 正是靠 lint 才发现的问题（见 CHANGELOG [1.5.0] "修复"）。
+on:
+  push:
+    branches: [ main, master, 'feature/**' ]
+  pull_request:
+
+# 同一分支的新提交取消上一次仍在跑的构建
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: lint + test + assembleDebug
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      # JVM 单元测试：纯逻辑，不需要模拟器/真机，秒级完成
+      - name: Unit tests
+        run: ./gradlew testDebugUnitTest --stacktrace
+
+      # 字库数据完整性：顺序指纹 / 数量 / 去重 / 词组拼音完整性。
+      # 顺序一旦变化会让 v1.4.4 升级用户的进度静默错位，必须在此拦住。
+      - name: Verify character library data
+        run: python3 scripts/verify_character_sets.py
+
+      # lint：必须 0 error。当前为 0 error / 23 warning
+      - name: Android Lint
+        run: ./gradlew lintDebug --stacktrace
+
+      - name: Assemble debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      # R8 + 资源裁剪：release 构建最容易出问题（keep 规则漏了就运行时崩溃），
+      # 因此每次提交都验证能产出未签名 release APK
+      - name: Assemble release APK (R8 + shrinkResources)
+        run: ./gradlew assembleRelease --stacktrace
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            app/build/reports/tests/**
+            app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore

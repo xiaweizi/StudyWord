@@ -2,15 +2,24 @@
 <resources>
     <color name="black">#FF1D1B23</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray_light">#FFF1F3F6</color>
     <color name="gray_dark">#FF5E5D68</color>
 
     <color name="sky_blue">#FFA7D8FF</color>
     <color name="sunshine">#FFFFE17B</color>
     <color name="peach">#FFFFC7B2</color>
     <color name="mint">#FFB8F2E6</color>
-    <color name="lavender">#FFF0D9FF</color>
     <color name="bubble_pink">#FFFFB3D9</color>
     <color name="deep_blue">#FF4E6EE4</color>
     <color name="tangerine">#FFFF9B62</color>
+    <!--
+        v1.6.0 清爽浅色设计 token
+        统一色系:背景浅蓝紫 / 卡片纯白 / 主色深蓝 / 强调橘
+    -->
+    <color name="primary_tint">#FFE8EDFF</color>
+    <color name="border_soft">#FFE6EAF7</color>
+    <color name="border_strong">#FFC9D4F0</color>
+    <color name="bg_top">#FFEDF3FF</color>
+    <color name="bg_bottom">#FFF6EFFF</color>
+    <!-- v1.6.0:破坏性操作的深橘色(白底上对比度约 4.4:1,tangerine 太亮不达标) -->
+    <color name="orange_deep">#FFD2621F</color>
 </resources>

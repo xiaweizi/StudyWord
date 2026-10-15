@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.4.2:抽屉顶部 emoji 头像的圆形粉色背景
+    渐变 + 顶部高光,呼应 3D 糖果风
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:startColor="@color/bubble_pink"
+                android:centerColor="@color/peach"
+                android:endColor="@color/sunshine"
+                android:angle="135"
+                android:type="linear" />
+        </shape>
+    </item>
+    <item android:top="6dp" android:left="6dp" android:right="6dp" android:bottom="20dp">
+        <shape android:shape="oval">
+            <gradient
+                android:startColor="#60FFFFFF"
+                android:centerColor="#20FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:angle="135"
+                android:type="linear" />
+        </shape>
+    </item>
+</layer-list>

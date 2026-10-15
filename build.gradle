@@ -1,10 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+// v1.6.0:升级 AGP 8.1.0 → 8.7.2 + Gradle 8.0 → 8.10.2 + Kotlin 1.9.0 → 1.9.24。
+// 升完之后理论上可以用 JDK 21(Studio 自带 JBR);本轮先保持 JDK 17，
+// 单独验证 AGP+Gradle+Kotlin 这一组合,任何兼容问题回滚到 wrapper.bak/root_build.bak。
 plugins {
-    id 'com.android.application' version '8.1.0' apply false
-    id 'com.android.library' version '8.1.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
+    id 'com.android.application' version '8.7.2' apply false
+    id 'com.android.library' version '8.7.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.24' apply false
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+// v1.5.0:改用 tasks.register + layout.buildDirectory。
+// 原写法 `task clean(type: Delete) { delete rootProject.buildDir }` 在配置缓存
+// (gradle.properties 里 org.gradle.configuration-cache=true)下会在执行期跨项目访问
+// rootProject.buildDir,而 buildDir 在 Gradle 8 已废弃 —— 两者是已知冲突组合。
+tasks.register('clean', Delete) {
+    delete rootProject.layout.buildDirectory
 }

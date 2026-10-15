@@ -1,0 +1,962 @@
+[
+  {
+    "word": "pig",
+    "phonetic": "/pɪɡ/",
+    "chineseMeaning": "猪",
+    "exampleSentence": "The pig is pink.",
+    "exampleSentenceTranslation": "这只猪是粉色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "duck",
+    "phonetic": "/dʌk/",
+    "chineseMeaning": "鸭子",
+    "exampleSentence": "The duck can swim.",
+    "exampleSentenceTranslation": "鸭子会游泳。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "cow",
+    "phonetic": "/kaʊ/",
+    "chineseMeaning": "奶牛",
+    "exampleSentence": "The cow gives milk.",
+    "exampleSentenceTranslation": "奶牛产牛奶。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "sheep",
+    "phonetic": "/ʃiːp/",
+    "chineseMeaning": "绵羊",
+    "exampleSentence": "The sheep is white.",
+    "exampleSentenceTranslation": "这只绵羊是白色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "hen",
+    "phonetic": "/hen/",
+    "chineseMeaning": "母鸡",
+    "exampleSentence": "The hen is yellow.",
+    "exampleSentenceTranslation": "这只母鸡是黄色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "bee",
+    "phonetic": "/biː/",
+    "chineseMeaning": "蜜蜂",
+    "exampleSentence": "A bee can fly.",
+    "exampleSentenceTranslation": "蜜蜂会飞。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "bear",
+    "phonetic": "/beə(r)/",
+    "chineseMeaning": "熊",
+    "exampleSentence": "Look at the big bear!",
+    "exampleSentenceTranslation": "看那只大熊！",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "lion",
+    "phonetic": "/ˈlaɪən/",
+    "chineseMeaning": "狮子",
+    "exampleSentence": "The lion is strong.",
+    "exampleSentenceTranslation": "狮子很强壮。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "tiger",
+    "phonetic": "/ˈtaɪɡə(r)/",
+    "chineseMeaning": "老虎",
+    "exampleSentence": "I see a tiger.",
+    "exampleSentenceTranslation": "我看见一只老虎。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "monkey",
+    "phonetic": "/ˈmʌŋki/",
+    "chineseMeaning": "猴子",
+    "exampleSentence": "The monkey likes bananas.",
+    "exampleSentenceTranslation": "猴子喜欢香蕉。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "panda",
+    "phonetic": "/ˈpændə/",
+    "chineseMeaning": "熊猫",
+    "exampleSentence": "The panda is black.",
+    "exampleSentenceTranslation": "熊猫是黑色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "rabbit",
+    "phonetic": "/ˈræbɪt/",
+    "chineseMeaning": "兔子",
+    "exampleSentence": "The rabbit is cute.",
+    "exampleSentenceTranslation": "小兔子很可爱。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "frog",
+    "phonetic": "/frɒɡ/",
+    "chineseMeaning": "青蛙",
+    "exampleSentence": "The frog is green.",
+    "exampleSentenceTranslation": "青蛙是绿色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "horse",
+    "phonetic": "/hɔːs/",
+    "chineseMeaning": "马",
+    "exampleSentence": "The horse runs fast.",
+    "exampleSentenceTranslation": "马跑得很快。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "egg",
+    "phonetic": "/eɡ/",
+    "chineseMeaning": "鸡蛋",
+    "exampleSentence": "I eat an egg.",
+    "exampleSentenceTranslation": "我吃一个鸡蛋。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "cake",
+    "phonetic": "/keɪk/",
+    "chineseMeaning": "蛋糕",
+    "exampleSentence": "The cake is sweet.",
+    "exampleSentenceTranslation": "蛋糕很甜。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "bread",
+    "phonetic": "/bred/",
+    "chineseMeaning": "面包",
+    "exampleSentence": "I like fresh bread.",
+    "exampleSentenceTranslation": "我喜欢新鲜的面包。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "rice",
+    "phonetic": "/raɪs/",
+    "chineseMeaning": "米饭",
+    "exampleSentence": "I eat rice.",
+    "exampleSentenceTranslation": "我吃米饭。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "banana",
+    "phonetic": "/bəˈnɑːnə/",
+    "chineseMeaning": "香蕉",
+    "exampleSentence": "The banana is yellow.",
+    "exampleSentenceTranslation": "香蕉是黄色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "pear",
+    "phonetic": "/peə(r)/",
+    "chineseMeaning": "梨",
+    "exampleSentence": "This is a pear.",
+    "exampleSentenceTranslation": "这是一个梨。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "grape",
+    "phonetic": "/ɡreɪp/",
+    "chineseMeaning": "葡萄",
+    "exampleSentence": "I like grapes.",
+    "exampleSentenceTranslation": "我喜欢葡萄。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "orange",
+    "phonetic": "/ˈɒrɪndʒ/",
+    "chineseMeaning": "橙子",
+    "exampleSentence": "The orange is round.",
+    "exampleSentenceTranslation": "橙子是圆圆的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "carrot",
+    "phonetic": "/ˈkærət/",
+    "chineseMeaning": "胡萝卜",
+    "exampleSentence": "The rabbit likes carrots.",
+    "exampleSentenceTranslation": "兔子喜欢胡萝卜。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "yellow",
+    "phonetic": "/ˈjeləʊ/",
+    "chineseMeaning": "黄色的",
+    "exampleSentence": "The bee is yellow.",
+    "exampleSentenceTranslation": "这只蜜蜂是黄色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "black",
+    "phonetic": "/blæk/",
+    "chineseMeaning": "黑色的",
+    "exampleSentence": "My hat is black.",
+    "exampleSentenceTranslation": "我的帽子是黑色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "white",
+    "phonetic": "/waɪt/",
+    "chineseMeaning": "白色的",
+    "exampleSentence": "The milk is white.",
+    "exampleSentenceTranslation": "牛奶是白色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "pink",
+    "phonetic": "/pɪŋk/",
+    "chineseMeaning": "粉色的",
+    "exampleSentence": "I see a pink flower.",
+    "exampleSentenceTranslation": "我看见一朵粉色的花。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "brown",
+    "phonetic": "/braʊn/",
+    "chineseMeaning": "棕色的",
+    "exampleSentence": "The dog is brown.",
+    "exampleSentenceTranslation": "这只狗是棕色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "brother",
+    "phonetic": "/ˈbrʌðə(r)/",
+    "chineseMeaning": "哥哥",
+    "exampleSentence": "My brother is tall.",
+    "exampleSentenceTranslation": "我的哥哥很高。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "sister",
+    "phonetic": "/ˈsɪstə(r)/",
+    "chineseMeaning": "姐姐",
+    "exampleSentence": "My sister is nice.",
+    "exampleSentenceTranslation": "我的姐姐很亲切。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "baby",
+    "phonetic": "/ˈbeɪbi/",
+    "chineseMeaning": "宝宝",
+    "exampleSentence": "The baby is smiling.",
+    "exampleSentenceTranslation": "宝宝在微笑。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "daddy",
+    "phonetic": "/ˈdædi/",
+    "chineseMeaning": "爸爸",
+    "exampleSentence": "I love my daddy.",
+    "exampleSentenceTranslation": "我爱我的爸爸。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "mummy",
+    "phonetic": "/ˈmʌmi/",
+    "chineseMeaning": "妈妈",
+    "exampleSentence": "Mummy is very kind.",
+    "exampleSentenceTranslation": "妈妈非常温柔。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "grandpa",
+    "phonetic": "/ˈɡrænpɑː/",
+    "chineseMeaning": "爷爷",
+    "exampleSentence": "Grandpa is very kind.",
+    "exampleSentenceTranslation": "爷爷非常和蔼。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "grandma",
+    "phonetic": "/ˈɡrænmɑː/",
+    "chineseMeaning": "奶奶",
+    "exampleSentence": "Grandma makes sweet cake.",
+    "exampleSentenceTranslation": "奶奶做甜甜的蛋糕。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "leg",
+    "phonetic": "/leɡ/",
+    "chineseMeaning": "腿",
+    "exampleSentence": "My leg is strong.",
+    "exampleSentenceTranslation": "我的腿很有力。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "arm",
+    "phonetic": "/ɑːm/",
+    "chineseMeaning": "胳膊",
+    "exampleSentence": "My arm is long.",
+    "exampleSentenceTranslation": "我的胳膊很长。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "tooth",
+    "phonetic": "/tuːθ/",
+    "chineseMeaning": "牙齿",
+    "exampleSentence": "My tooth is white.",
+    "exampleSentenceTranslation": "我的牙齿是白色的。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "kite",
+    "phonetic": "/kaɪt/",
+    "chineseMeaning": "风筝",
+    "exampleSentence": "The kite can fly.",
+    "exampleSentenceTranslation": "风筝会飞。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "doll",
+    "phonetic": "/dɒl/",
+    "chineseMeaning": "洋娃娃",
+    "exampleSentence": "I like my doll.",
+    "exampleSentenceTranslation": "我喜欢我的洋娃娃。",
+    "difficulty": "EASY"
+  },
+  {
+    "word": "bed",
+    "phonetic": "/bed/",
+    "chineseMeaning": "床",
+    "exampleSentence": "The bed is soft.",
+    "exampleSentenceTranslation": "这张床很软。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "spoon",
+    "phonetic": "/spuːn/",
+    "chineseMeaning": "勺子",
+    "exampleSentence": "I use a spoon.",
+    "exampleSentenceTranslation": "我用勺子。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "cup",
+    "phonetic": "/kʌp/",
+    "chineseMeaning": "杯子",
+    "exampleSentence": "This is my cup.",
+    "exampleSentenceTranslation": "这是我的杯子。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "box",
+    "phonetic": "/bɒks/",
+    "chineseMeaning": "盒子",
+    "exampleSentence": "The box is small.",
+    "exampleSentenceTranslation": "这个盒子很小。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "door",
+    "phonetic": "/dɔː(r)/",
+    "chineseMeaning": "门",
+    "exampleSentence": "Open the door.",
+    "exampleSentenceTranslation": "打开门。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "window",
+    "phonetic": "/ˈwɪndəʊ/",
+    "chineseMeaning": "窗户",
+    "exampleSentence": "The window is open.",
+    "exampleSentenceTranslation": "窗户开着。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "clock",
+    "phonetic": "/klɒk/",
+    "chineseMeaning": "钟",
+    "exampleSentence": "The clock is round.",
+    "exampleSentenceTranslation": "这个钟是圆的。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "key",
+    "phonetic": "/kiː/",
+    "chineseMeaning": "钥匙",
+    "exampleSentence": "This is a key.",
+    "exampleSentenceTranslation": "这是一把钥匙。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "pen",
+    "phonetic": "/pen/",
+    "chineseMeaning": "钢笔",
+    "exampleSentence": "I have a pen.",
+    "exampleSentenceTranslation": "我有一支钢笔。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "bag",
+    "phonetic": "/bæɡ/",
+    "chineseMeaning": "包",
+    "exampleSentence": "My bag is blue.",
+    "exampleSentenceTranslation": "我的包是蓝色的。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "boat",
+    "phonetic": "/bəʊt/",
+    "chineseMeaning": "小船",
+    "exampleSentence": "The boat is small.",
+    "exampleSentenceTranslation": "小船很小。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "train",
+    "phonetic": "/treɪn/",
+    "chineseMeaning": "火车",
+    "exampleSentence": "The train is long.",
+    "exampleSentenceTranslation": "火车很长。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "bike",
+    "phonetic": "/baɪk/",
+    "chineseMeaning": "自行车",
+    "exampleSentence": "I ride my bike.",
+    "exampleSentenceTranslation": "我骑我的自行车。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "run",
+    "phonetic": "/rʌn/",
+    "chineseMeaning": "跑",
+    "exampleSentence": "I can run fast.",
+    "exampleSentenceTranslation": "我能跑得很快。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "jump",
+    "phonetic": "/dʒʌmp/",
+    "chineseMeaning": "跳",
+    "exampleSentence": "The frog can jump.",
+    "exampleSentenceTranslation": "青蛙会跳。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "walk",
+    "phonetic": "/wɔːk/",
+    "chineseMeaning": "走路",
+    "exampleSentence": "We walk to school.",
+    "exampleSentenceTranslation": "我们走路去学校。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "sit",
+    "phonetic": "/sɪt/",
+    "chineseMeaning": "坐",
+    "exampleSentence": "Please sit down.",
+    "exampleSentenceTranslation": "请坐下。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "stand",
+    "phonetic": "/stænd/",
+    "chineseMeaning": "站",
+    "exampleSentence": "Please stand up.",
+    "exampleSentenceTranslation": "请站起来。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "eat",
+    "phonetic": "/iːt/",
+    "chineseMeaning": "吃",
+    "exampleSentence": "I eat an apple.",
+    "exampleSentenceTranslation": "我吃一个苹果。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "drink",
+    "phonetic": "/drɪŋk/",
+    "chineseMeaning": "喝",
+    "exampleSentence": "I drink some water.",
+    "exampleSentenceTranslation": "我喝一些水。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "sleep",
+    "phonetic": "/sliːp/",
+    "chineseMeaning": "睡觉",
+    "exampleSentence": "The baby is sleeping.",
+    "exampleSentenceTranslation": "宝宝正在睡觉。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "read",
+    "phonetic": "/riːd/",
+    "chineseMeaning": "读",
+    "exampleSentence": "I read a book.",
+    "exampleSentenceTranslation": "我读一本书。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "sing",
+    "phonetic": "/sɪŋ/",
+    "chineseMeaning": "唱歌",
+    "exampleSentence": "We sing a song.",
+    "exampleSentenceTranslation": "我们唱一首歌。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "dance",
+    "phonetic": "/dɑːns/",
+    "chineseMeaning": "跳舞",
+    "exampleSentence": "I like to dance.",
+    "exampleSentenceTranslation": "我喜欢跳舞。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "swim",
+    "phonetic": "/swɪm/",
+    "chineseMeaning": "游泳",
+    "exampleSentence": "I can swim well.",
+    "exampleSentenceTranslation": "我游泳游得好。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "hot",
+    "phonetic": "/hɒt/",
+    "chineseMeaning": "热的",
+    "exampleSentence": "The soup is hot.",
+    "exampleSentenceTranslation": "汤很热。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "cold",
+    "phonetic": "/kəʊld/",
+    "chineseMeaning": "冷的",
+    "exampleSentence": "The water is cold.",
+    "exampleSentenceTranslation": "水是冷的。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "big",
+    "phonetic": "/bɪɡ/",
+    "chineseMeaning": "大的",
+    "exampleSentence": "The ball is big.",
+    "exampleSentenceTranslation": "这个球很大。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "small",
+    "phonetic": "/smɔːl/",
+    "chineseMeaning": "小的",
+    "exampleSentence": "The cat is small.",
+    "exampleSentenceTranslation": "这只猫很小。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "long",
+    "phonetic": "/lɒŋ/",
+    "chineseMeaning": "长的",
+    "exampleSentence": "The snake is long.",
+    "exampleSentenceTranslation": "这条蛇很长。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "short",
+    "phonetic": "/ʃɔːt/",
+    "chineseMeaning": "短的",
+    "exampleSentence": "My hair is short.",
+    "exampleSentenceTranslation": "我的头发很短。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "tall",
+    "phonetic": "/tɔːl/",
+    "chineseMeaning": "高的",
+    "exampleSentence": "The tree is tall.",
+    "exampleSentenceTranslation": "这棵树很高。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "fast",
+    "phonetic": "/fɑːst/",
+    "chineseMeaning": "快的",
+    "exampleSentence": "The car is fast.",
+    "exampleSentenceTranslation": "这辆车很快。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "slow",
+    "phonetic": "/sləʊ/",
+    "chineseMeaning": "慢的",
+    "exampleSentence": "The turtle is slow.",
+    "exampleSentenceTranslation": "乌龟爬得很慢。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "new",
+    "phonetic": "/njuː/",
+    "chineseMeaning": "新的",
+    "exampleSentence": "I have a new bag.",
+    "exampleSentenceTranslation": "我有一个新书包。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "old",
+    "phonetic": "/əʊld/",
+    "chineseMeaning": "旧的",
+    "exampleSentence": "This is an old book.",
+    "exampleSentenceTranslation": "这是一本旧书。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "young",
+    "phonetic": "/jʌŋ/",
+    "chineseMeaning": "年轻的",
+    "exampleSentence": "The baby is young.",
+    "exampleSentenceTranslation": "宝宝还很小。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "funny",
+    "phonetic": "/ˈfʌni/",
+    "chineseMeaning": "有趣的",
+    "exampleSentence": "The monkey is funny.",
+    "exampleSentenceTranslation": "这只猴子很有趣。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "nice",
+    "phonetic": "/naɪs/",
+    "chineseMeaning": "好的",
+    "exampleSentence": "You are very nice.",
+    "exampleSentenceTranslation": "你真好。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "pretty",
+    "phonetic": "/ˈprɪti/",
+    "chineseMeaning": "漂亮的",
+    "exampleSentence": "The dress is pretty.",
+    "exampleSentenceTranslation": "这条裙子很漂亮。",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "word": "rainbow",
+    "phonetic": "/ˈreɪnbəʊ/",
+    "chineseMeaning": "彩虹",
+    "exampleSentence": "The rainbow is beautiful.",
+    "exampleSentenceTranslation": "彩虹真美丽。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "elephant",
+    "phonetic": "/ˈelɪfənt/",
+    "chineseMeaning": "大象",
+    "exampleSentence": "The elephant is very big.",
+    "exampleSentenceTranslation": "大象非常大。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "umbrella",
+    "phonetic": "/ʌmˈbrelə/",
+    "chineseMeaning": "雨伞",
+    "exampleSentence": "I have an umbrella.",
+    "exampleSentenceTranslation": "我有一把雨伞。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "butterfly",
+    "phonetic": "/ˈbʌtəflaɪ/",
+    "chineseMeaning": "蝴蝶",
+    "exampleSentence": "The butterfly is pretty.",
+    "exampleSentenceTranslation": "蝴蝶真漂亮。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "dinosaur",
+    "phonetic": "/ˈdaɪnəsɔː(r)/",
+    "chineseMeaning": "恐龙",
+    "exampleSentence": "The dinosaur is friendly.",
+    "exampleSentenceTranslation": "这只恐龙很友好。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "squirrel",
+    "phonetic": "/ˈskwɪrəl/",
+    "chineseMeaning": "松鼠",
+    "exampleSentence": "The squirrel likes nuts.",
+    "exampleSentenceTranslation": "松鼠喜欢坚果。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "giraffe",
+    "phonetic": "/dʒəˈrɑːf/",
+    "chineseMeaning": "长颈鹿",
+    "exampleSentence": "The giraffe is very tall.",
+    "exampleSentenceTranslation": "长颈鹿非常高。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "turtle",
+    "phonetic": "/ˈtɜːtl/",
+    "chineseMeaning": "乌龟",
+    "exampleSentence": "The turtle walks slowly.",
+    "exampleSentenceTranslation": "乌龟走得很慢。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "chicken",
+    "phonetic": "/ˈtʃɪkɪn/",
+    "chineseMeaning": "小鸡",
+    "exampleSentence": "The chicken is small.",
+    "exampleSentenceTranslation": "小鸡很小。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "flower",
+    "phonetic": "/ˈflaʊə(r)/",
+    "chineseMeaning": "花",
+    "exampleSentence": "The flower is red.",
+    "exampleSentenceTranslation": "这朵花是红色的。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "basket",
+    "phonetic": "/ˈbɑːskɪt/",
+    "chineseMeaning": "篮子",
+    "exampleSentence": "The basket is full.",
+    "exampleSentenceTranslation": "篮子装满了。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "mirror",
+    "phonetic": "/ˈmɪrə(r)/",
+    "chineseMeaning": "镜子",
+    "exampleSentence": "I look in the mirror.",
+    "exampleSentenceTranslation": "我照镜子。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "kitchen",
+    "phonetic": "/ˈkɪtʃɪn/",
+    "chineseMeaning": "厨房",
+    "exampleSentence": "Mummy is in the kitchen.",
+    "exampleSentenceTranslation": "妈妈在厨房里。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "garden",
+    "phonetic": "/ˈɡɑːdn/",
+    "chineseMeaning": "花园",
+    "exampleSentence": "The garden is pretty.",
+    "exampleSentenceTranslation": "花园很漂亮。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "playground",
+    "phonetic": "/ˈpleɪɡraʊnd/",
+    "chineseMeaning": "操场",
+    "exampleSentence": "We play on the playground.",
+    "exampleSentenceTranslation": "我们在操场上玩。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "library",
+    "phonetic": "/ˈlaɪbrəri/",
+    "chineseMeaning": "图书馆",
+    "exampleSentence": "The library is quiet.",
+    "exampleSentenceTranslation": "图书馆很安静。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "pumpkin",
+    "phonetic": "/ˈpʌmpkɪn/",
+    "chineseMeaning": "南瓜",
+    "exampleSentence": "The pumpkin is orange.",
+    "exampleSentenceTranslation": "南瓜是橙色的。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "strawberry",
+    "phonetic": "/ˈstrɔːbəri/",
+    "chineseMeaning": "草莓",
+    "exampleSentence": "I like the strawberry.",
+    "exampleSentenceTranslation": "我喜欢这颗草莓。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "watermelon",
+    "phonetic": "/ˈwɔːtəmelən/",
+    "chineseMeaning": "西瓜",
+    "exampleSentence": "The watermelon is sweet.",
+    "exampleSentenceTranslation": "西瓜很甜。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "pineapple",
+    "phonetic": "/ˈpaɪnæpl/",
+    "chineseMeaning": "菠萝",
+    "exampleSentence": "The pineapple is yellow.",
+    "exampleSentenceTranslation": "菠萝是黄色的。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "tomato",
+    "phonetic": "/təˈmɑːtəʊ/",
+    "chineseMeaning": "西红柿",
+    "exampleSentence": "The tomato is red.",
+    "exampleSentenceTranslation": "西红柿是红色的。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "potato",
+    "phonetic": "/pəˈteɪtəʊ/",
+    "chineseMeaning": "土豆",
+    "exampleSentence": "I like potatoes.",
+    "exampleSentenceTranslation": "我喜欢土豆。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "cucumber",
+    "phonetic": "/ˈkjuːkʌmbə(r)/",
+    "chineseMeaning": "黄瓜",
+    "exampleSentence": "The cucumber is green.",
+    "exampleSentenceTranslation": "黄瓜是绿色的。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "breakfast",
+    "phonetic": "/ˈbrekfəst/",
+    "chineseMeaning": "早餐",
+    "exampleSentence": "Breakfast is ready.",
+    "exampleSentenceTranslation": "早餐准备好了。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "beautiful",
+    "phonetic": "/ˈbjuːtɪfl/",
+    "chineseMeaning": "美丽的",
+    "exampleSentence": "The flower is beautiful.",
+    "exampleSentenceTranslation": "这朵花很美。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "delicious",
+    "phonetic": "/dɪˈlɪʃəs/",
+    "chineseMeaning": "美味的",
+    "exampleSentence": "The cake is delicious.",
+    "exampleSentenceTranslation": "蛋糕真好吃。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "hungry",
+    "phonetic": "/ˈhʌŋɡri/",
+    "chineseMeaning": "饿的",
+    "exampleSentence": "I am very hungry.",
+    "exampleSentenceTranslation": "我非常饿。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "thirsty",
+    "phonetic": "/ˈθɜːsti/",
+    "chineseMeaning": "渴的",
+    "exampleSentence": "I am very thirsty.",
+    "exampleSentenceTranslation": "我非常渴。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "friend",
+    "phonetic": "/frend/",
+    "chineseMeaning": "朋友",
+    "exampleSentence": "She is my friend.",
+    "exampleSentenceTranslation": "她是我的朋友。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "teacher",
+    "phonetic": "/ˈtiːtʃə(r)/",
+    "chineseMeaning": "老师",
+    "exampleSentence": "My teacher is kind.",
+    "exampleSentenceTranslation": "我的老师很和蔼。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "doctor",
+    "phonetic": "/ˈdɒktə(r)/",
+    "chineseMeaning": "医生",
+    "exampleSentence": "The doctor is here.",
+    "exampleSentenceTranslation": "医生来了。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "driver",
+    "phonetic": "/ˈdraɪvə(r)/",
+    "chineseMeaning": "司机",
+    "exampleSentence": "The driver is smiling.",
+    "exampleSentenceTranslation": "司机在微笑。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "farmer",
+    "phonetic": "/ˈfɑːmə(r)/",
+    "chineseMeaning": "农民",
+    "exampleSentence": "The farmer is busy.",
+    "exampleSentenceTranslation": "农民很忙。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "policeman",
+    "phonetic": "/pəˈliːsmən/",
+    "chineseMeaning": "警察",
+    "exampleSentence": "The policeman is kind.",
+    "exampleSentenceTranslation": "警察很亲切。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "afternoon",
+    "phonetic": "/ˌɑːftəˈnuːn/",
+    "chineseMeaning": "下午",
+    "exampleSentence": "Good afternoon, my friend.",
+    "exampleSentenceTranslation": "下午好，我的朋友。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "birthday",
+    "phonetic": "/ˈbɜːθdeɪ/",
+    "chineseMeaning": "生日",
+    "exampleSentence": "Today is my birthday.",
+    "exampleSentenceTranslation": "今天是我的生日。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "holiday",
+    "phonetic": "/ˈhɒlədeɪ/",
+    "chineseMeaning": "假期",
+    "exampleSentence": "We love the holiday.",
+    "exampleSentenceTranslation": "我们喜欢假期。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "mountain",
+    "phonetic": "/ˈmaʊntən/",
+    "chineseMeaning": "山",
+    "exampleSentence": "The mountain is high.",
+    "exampleSentenceTranslation": "这座山很高。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "river",
+    "phonetic": "/ˈrɪvə(r)/",
+    "chineseMeaning": "河流",
+    "exampleSentence": "The river is long.",
+    "exampleSentenceTranslation": "这条河很长。",
+    "difficulty": "HARD"
+  },
+  {
+    "word": "pencil",
+    "phonetic": "/ˈpensl/",
+    "chineseMeaning": "铅笔",
+    "exampleSentence": "I have a pencil.",
+    "exampleSentenceTranslation": "我有一支铅笔。",
+    "difficulty": "HARD"
+  }
+]

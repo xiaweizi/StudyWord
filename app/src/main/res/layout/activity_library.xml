@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationContentDescription="@string/back"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="字库总览"
+        app:title="@string/library_title"
         app:titleTextColor="@color/deep_blue" />
 
     <com.google.android.material.card.MaterialCardView
@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:cardBackgroundColor="@android:color/transparent"
-        app:cardCornerRadius="26dp"
-        app:cardElevation="0dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBar">
@@ -41,13 +41,74 @@
             android:orientation="vertical"
             android:padding="20dp">
 
+            <!-- v1.6.0:搜索框(汉字 / 拼音 / 单词 / 中文意思) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/library_search_hint"
+                app:boxStrokeColor="@color/border_strong"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_search"
+                app:startIconTint="@color/deep_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- v1.6.0:搜索结果的条数提示(无搜索词时隐藏) -->
+            <TextView
+                android:id="@+id/searchSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/deep_blue"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="找到 12 条" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="筛选"
+                android:layout_marginTop="12dp"
+                android:text="@string/filter_title"
                 android:textColor="@color/deep_blue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <!-- v1.3.0 新增:语言切换 chip group,中文 / ENGLISH 二选一 -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/languageChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:selectionRequired="true"
+                app:singleLine="false"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLanguageChinese"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_chinese" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLanguageEnglish"
+                    style="@style/Widget.StudyWord.DifficultyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_english" />
+            </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/statusFilterGroup"
@@ -62,28 +123,28 @@
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="全部" />
+                    android:text="@string/filter_all" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipFilterKnown"
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="已认识" />
+                    android:text="@string/status_known" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipFilterUnknown"
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="待巩固" />
+                    android:text="@string/status_unknown" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipFilterUnseen"
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="未学习" />
+                    android:text="@string/status_unseen" />
             </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.chip.ChipGroup
@@ -99,28 +160,28 @@
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="全部难度" />
+                    android:text="@string/filter_all_difficulty" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipDifficultyEasy"
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="简单" />
+                    android:text="@string/difficulty_easy" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipDifficultyMedium"
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="中等" />
+                    android:text="@string/difficulty_medium" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipDifficultyHard"
                     style="@style/Widget.StudyWord.DifficultyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="困难" />
+                    android:text="@string/difficulty_hard" />
             </com.google.android.material.chip.ChipGroup>
 
         </LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    字库英文项(letter / word)单元格布局。
+    中文用 item_character_status.xml,英文用此 layout;
+    两套 layout 字段一致:大字(primaryText) + 副字(phonetic) + 状态标签。
+-->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="@dimen/radius_chip"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!--
+            letter 模式:"Aa"(uppercase + lowercase 一行),word 模式:单词
+            长单词(brother / elephant)在 4 列网格里放不下,必须自动缩字。
+            注意:AppCompatTextView 认的是 **app:autoSizeTextType**,
+            只写 android:autoSizeTextType 不生效(会保持固定 22sp → 被省略号截断)。
+
+            v1.6.0 对齐修正:**高度必须固定**。
+            自动缩字会让不同单词用不同字号,行高随之变化;
+            音标还可能换行 —— 两者叠加导致下方"已认识/待巩固"徽章高低不齐。
+            把"单词行"和"音标行"都钉成固定高度,徽章位置就恒定了。
+        -->
+        <TextView
+            android:id="@+id/characterText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:autoSizeMaxTextSize="22sp"
+            android:autoSizeMinTextSize="10sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/en_char_placeholder"
+            android:textColor="@color/deep_blue"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="22sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform" />
+
+        <TextView
+            android:id="@+id/phoneticText"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:autoSizeMaxTextSize="11sp"
+            android:autoSizeMinTextSize="7sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/en_phonetic_placeholder"
+            android:textColor="@color/gray_dark"
+            android:textSize="11sp"
+            app:autoSizeMaxTextSize="11sp"
+            app:autoSizeMinTextSize="7sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform" />
+
+        <TextView
+            android:id="@+id/statusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_status_unknown"
+            android:maxLines="1"
+            android:paddingStart="6dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="4dp"
+            android:text="@string/status_placeholder"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

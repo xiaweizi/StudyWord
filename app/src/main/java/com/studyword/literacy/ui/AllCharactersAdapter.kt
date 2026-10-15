@@ -11,7 +11,9 @@ import com.studyword.literacy.model.LearningCharacter
 
 class AllCharactersAdapter(
     private val statusProvider: (LearningCharacter) -> CharacterStatus,
-    private val onItemClicked: (LearningCharacter) -> Unit
+    private val onItemClicked: (LearningCharacter) -> Unit,
+    /** v1.4.0:长按回调(可选);长按时若调,需 push 状态对话框 */
+    private val onItemLongClicked: ((LearningCharacter) -> Unit)? = null
 ) : ListAdapter<LearningCharacter, AllCharactersAdapter.CharacterViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -44,6 +46,12 @@ class AllCharactersAdapter(
             )
 
             binding.root.setOnClickListener { onItemClicked(character) }
+            onItemLongClicked?.let { longHandler ->
+                    binding.root.setOnLongClickListener {
+                        longHandler(character)
+                        true
+                    }
+                }
         }
     }
 

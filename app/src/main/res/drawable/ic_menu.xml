@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.6.0:抽屉(汉堡)图标。
+    原来直接用字符 "≡"(U+2261) 当图标 —— 它是**数学符号**,在字体里垂直位置偏下,
+    实测字形视觉中心比同一行的标签低 11px(≈3.4dp),看起来"抽屉位置稍微低了些"。
+    改用矢量图标后由 MaterialButton 精确居中,不再受字体度量影响。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/deep_blue"
+        android:pathData="M3,18h18v-2H3v2zM3,13h18v-2H3v2zM3,8h18V6H3v2z" />
+</vector>

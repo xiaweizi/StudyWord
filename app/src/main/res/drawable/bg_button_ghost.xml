@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.6.0:弱化按钮(跳过等)= 白底 + 浅灰描边,不与主操作抢视觉 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="@dimen/radius_button" />
+    <solid android:color="@color/white" />
+    <stroke android:width="2dp" android:color="@color/border_strong" />
+    <padding android:left="16dp" android:top="12dp" android:right="16dp" android:bottom="12dp" />
+</shape>

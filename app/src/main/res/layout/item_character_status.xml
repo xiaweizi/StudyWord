@@ -4,33 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp">
+    app:cardCornerRadius="@dimen/radius_chip"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="10dp">
 
+        <!--
+            v1.6.0:高度固定。
+            与英文格子同理 —— 只要上面两行的高度会变(拼音换行、以后改字号),
+            下方"已认识/待巩固"徽章就会高低不齐。钉死高度才能保证一整屏对齐。
+        -->
         <TextView
             android:id="@+id/characterText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="字"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/char_placeholder"
             android:textColor="@color/deep_blue"
             android:textSize="28sp"
+                        android:fontFamily="@font/studyword_kai"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/pinyinText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
             android:layout_marginTop="4dp"
-            android:text="zi"
+            android:autoSizeMaxTextSize="12sp"
+            android:autoSizeMinTextSize="8sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/pinyin_placeholder"
             android:textColor="@color/gray_dark"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            app:autoSizeMaxTextSize="12sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform" />
 
         <TextView
             android:id="@+id/statusLabel"
@@ -38,13 +57,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_status_unknown"
-            android:paddingStart="12dp"
+            android:paddingStart="6dp"
             android:paddingTop="4dp"
-            android:paddingEnd="12dp"
+            android:paddingEnd="6dp"
             android:paddingBottom="4dp"
-            android:text="状态"
+            android:text="@string/status_placeholder"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textStyle="bold" />
     </LinearLayout>
 

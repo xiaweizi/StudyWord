@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  v1.6.0:开机启动页 —— 单张静态插画
+
+  由设计提供了一张成图(1024×1360 PNG)。整个 SplashActivity 期间
+  全屏显示这张图 2 秒后启动 MainActivity。
+  SplashActivity.kt 里负责计时与跳转。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/splashImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/cd_splash"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_intro" />
+</FrameLayout>

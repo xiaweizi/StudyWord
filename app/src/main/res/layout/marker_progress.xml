@@ -9,7 +9,7 @@
         android:id="@+id/markerDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10-01"
+        android:text="@string/marker_date_placeholder"
         android:textColor="@color/deep_blue"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="掌握率：80%"
+        android:text="@string/marker_rate_placeholder"
         android:textColor="@color/gray_dark"
         android:textSize="12sp" />
 

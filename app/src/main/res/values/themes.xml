@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.StudyWord" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!--
+        v1.5.0:深色模式**明确锁定浅色**。
+
+        此前继承的是 DayNight,但项目里没有 values-night、所有颜色只有浅色一份、
+        背景还是写死的浅色渐变 —— 系统切深色后主题会让部分 Material 组件走深色,
+        与浅色底/浅色卡片混搭,对比度不可控。
+
+        二选一之后选择"锁浅色":儿童向 App 的卡通配色在大面积深色下需要重新调色,
+        成本高且收益低;明确锁定可以避免"半深色"的不确定状态。
+        同时关掉 OEM 的强制深色(forceDarkAllowed),否则厂商会自行反色、把配色弄乱。
+    -->
+    <style name="Theme.StudyWord" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimary">@color/deep_blue</item>
@@ -10,6 +21,7 @@
         <item name="materialAlertDialogTheme">@style/Theme.StudyWord.Dialog</item>
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowBackground">@drawable/bg_main_gradient</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <style name="Theme.StudyWord.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
@@ -17,45 +29,162 @@
         <item name="colorSecondary">@color/tangerine</item>
     </style>
 
-    <style name="Widget.StudyWord.PrimaryButton" parent="Widget.MaterialComponents.Button">
+    <!--
+        v1.4.4:UI 简约化 — 删 v1.4.1/v1.4.3 期间加的几个属性
+        保留 UnelevatedButton 父样式(v1.4.3 修的点击 bug 不能丢):
+        - backgroundTint=@null / android:backgroundTint=@null — 让 layer-list 背景生效
+        - stateListAnimator=@null + elevation=0dp — 修点击时 elevation 动画拦截触摸事件
+        实测 v1.4.0 单层 shape + UnelevatedButton + 这些属性 = 可点击且视觉简约
+    -->
+    <style name="Widget.StudyWord.PrimaryButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:background">@drawable/bg_button_primary</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">false</item>
-    </style>
-
-    <style name="Widget.StudyWord.SecondaryButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:background">@drawable/bg_button_secondary</item>
-        <item name="android:textColor">@color/deep_blue</item>
-        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">0dp</item>
+        <item name="rippleColor">@color/bubble_pink</item>
+    </style>
+
+    <style name="Widget.StudyWord.SecondaryButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textColor">@color/deep_blue</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">0dp</item>
+        <item name="rippleColor">@color/sky_blue</item>
+    </style>
+
+    <!--
+        v1.5.0 新增:顶部 chrome 按钮(汉堡菜单 / 抽屉返回 / 跳转回源页)。
+
+        这三个按钮此前**没有 style**,且只写了 background + backgroundTint=transparent,
+        缺少 backgroundTint=@null 与 android:stateListAnimator=@null —— 正是本文件
+        上方 v1.4.3 注释里记录的"按钮显示正常但点击没反应"的成因配方
+        (MaterialShapeDrawable 拦截触摸 + elevation 动画抢占事件)。
+        它们又是主页唯一的导航入口,一旦复现连抽屉都打不开,因此统一收敛到本样式。
+    -->
+    <style name="Widget.StudyWord.ChromeButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/deep_blue</item>
+        <item name="rippleColor">@color/sky_blue</item>
     </style>
 
     <style name="Widget.StudyWord.DifficultyChip" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="chipCornerRadius">18dp</item>
+        <item name="chipCornerRadius">@dimen/radius_chip</item>
         <item name="chipMinHeight">40dp</item>
         <item name="chipBackgroundColor">@color/chip_state_color</item>
-        <item name="chipStrokeColor">@color/deep_blue</item>
+        <item name="chipStrokeColor">@color/border_strong</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="android:textColor">@color/chip_text_color</item>
-        <item name="rippleColor">@color/bubble_pink</item>
+        <item name="rippleColor">@color/primary_tint</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Widget.StudyWord.UnknownButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:background">@drawable/bg_button_unknown</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">@android:color/transparent</item>
+    <!--
+        v1.6.0:弱化按钮(跳过 / 返回等次要操作)= 白底 + 浅灰描边 + 灰字,
+        不与主操作抢视觉。
+    -->
+    <style name="Widget.StudyWord.GhostButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:background">@drawable/bg_button_ghost</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">0dp</item>
+        <item name="rippleColor">@color/border_strong</item>
+    </style>
+
+    <style name="Widget.StudyWord.UnknownButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:background">@drawable/bg_button_unknown</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">0dp</item>
+        <item name="rippleColor">@color/bubble_pink</item>
+    </style>
+
+    <!-- 游戏页 4 选 1 大字选项按钮 -->
+    <style name="Widget.StudyWord.OptionButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:background">@drawable/bg_option_default</item>
+        <item name="android:textColor">@color/deep_blue</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">0dp</item>
+        <item name="rippleColor">@color/sky_blue</item>
+    </style>
+
+    <!-- 词组 chip(v1.2.0):用于主页字卡下方展示该字组成的词组,点击即朗读 -->
+    <style name="Widget.StudyWord.WordChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipCornerRadius">14dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipBackgroundColor">@color/sky_blue</item>
+        <item name="android:textColor">@color/deep_blue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!--
+        v1.6.0:破坏性操作按钮(重置进度)。与 SecondaryButton 同一套结构、只换色,
+        使设置页 4 个按钮只有"普通 / 危险"两种观感。
+    -->
+    <style name="Widget.StudyWord.DangerOutlineButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:background">@drawable/bg_button_danger_outline</item>
+        <item name="android:textColor">@color/orange_deep</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">0dp</item>
+        <item name="rippleColor">@color/peach</item>
     </style>
 </resources>

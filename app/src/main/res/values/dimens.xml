@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.5.0 设计 token。
+
+    此前间距 / 圆角 / 触控目标全是散落在各布局里的字面量:
+    - 圆角出现过 14/16/18/20/22/24/26/28/999dp 九档
+    - 卡片 padding 出现过 14/16/20/24/32dp 五档
+    - 且 MaterialCardView 的 cardCornerRadius(26/28dp)与内部 drawable 的圆角(24dp)不一致,
+      每张卡片四个角都会露出 4dp 的透明缺口
+
+    统一到这里之后,改一处即可全局生效。
+-->
+<resources>
+
+    <!-- ===== 间距 ===== -->
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_m">16dp</dimen>
+    <dimen name="space_l">24dp</dimen>
+
+    <!-- ===== 圆角 =====
+         radius_card 必须与 bg_card_playful.xml 的 corners 保持一致,否则卡片四角会出现缝隙 -->
+    <dimen name="radius_card">24dp</dimen>
+    <dimen name="radius_button">24dp</dimen>
+    <dimen name="radius_chip">18dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- ===== 无障碍:最小触控目标(48dp) ===== -->
+    <dimen name="touch_target">48dp</dimen>
+
+    <!-- ===== 抽屉 ===== -->
+    <dimen name="drawer_width">300dp</dimen>
+
+</resources>

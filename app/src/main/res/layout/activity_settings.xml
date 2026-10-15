@@ -19,71 +19,234 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationContentDescription="@string/back"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="设置中心"
+        app:title="@string/settings_title"
         app:titleTextColor="@color/deep_blue" />
 
-    <LinearLayout
-        android:id="@+id/cardLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_card_playful"
-        android:orientation="vertical"
-        android:padding="20dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBar">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="✨ 数据与进度"
-            android:textColor="@color/deep_blue"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="导出当前识字记录或重置进度，重新开启冒险。"
-            android:textColor="@color/gray_dark"
-            android:textSize="13sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/libraryButton"
-                style="@style/Widget.StudyWord.SecondaryButton"
+            <!-- v1.6.0:孩子档案卡片(P2-2)。整个设置页已在家长门后面,这里不再重复加门 -->
+            <LinearLayout
+                android:id="@+id/cardProfiles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="浏览全部汉字" />
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card_playful"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/exportButton"
-                style="@style/Widget.StudyWord.PrimaryButton"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_section_title"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/profile_section_desc"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/profileChipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:singleSelection="true"
+                    app:selectionRequired="true" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addProfileButton"
+                    style="@style/Widget.StudyWord.SecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/profile_add" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/renameProfileButton"
+                        style="@style/Widget.StudyWord.SecondaryButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/profile_rename" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/deleteProfileButton"
+                        style="@style/Widget.StudyWord.DangerOutlineButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/profile_delete" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 数据与进度卡片 -->
+            <LinearLayout
+                android:id="@+id/cardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_playful"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_data_title"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/settings_data_desc"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/libraryButton"
+                    style="@style/Widget.StudyWord.SecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/library_all_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/exportButton"
+                    style="@style/Widget.StudyWord.SecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/export_button_label" />
+
+                <!-- v1.6.0:CSV 导入(P2-3)—— 把导出的文件导回,用于换手机或换档案 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/importButton"
+                    style="@style/Widget.StudyWord.SecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/import_button_label" />
+
+                <!-- v1.3.0:重置按钮拆为两个,中文 / 英文独立重置 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/resetChineseButton"
+                    style="@style/Widget.StudyWord.DangerOutlineButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/reset_chinese_label" />
+
+                <!-- v1.6.0:语音诊断(远程排查 TTS 问题时让用户截图) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ttsDiagnoseButton"
+                    style="@style/Widget.StudyWord.SecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tts_diagnose_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/resetEnglishButton"
+                    style="@style/Widget.StudyWord.DangerOutlineButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/reset_english_label" />
+            </LinearLayout>
+
+            <!-- v1.3.0 新增:字库总览(中英分别) -->
+            <LinearLayout
+                android:id="@+id/cardOverview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-            android:text="导出识字数据" />
+                android:background="@drawable/bg_card_playful"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/resetButton"
-            style="@style/Widget.StudyWord.UnknownButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="重置全部记录" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_overview_title"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/overviewChinese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/overview_chinese_placeholder"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="更多功能敬请期待..."
-        android:textColor="@color/gray_dark"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@id/cardLayout"
-        app:layout_constraintTop_toBottomOf="@id/cardLayout" />
+                <TextView
+                    android:id="@+id/overviewEnglish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/overview_english_placeholder"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/overviewChineseProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/overview_chinese_progress_placeholder"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/overviewEnglishProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/overview_english_progress_placeholder"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/settings_more_coming"
+                android:textColor="@color/gray_dark"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.6.0:选项卡由"亮蓝描边"改为白底细描边(原描边在浅背景上发蓝光) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="@dimen/radius_card" />
+    <solid android:color="@color/white" />
+    <stroke android:width="1.5dp" android:color="@color/border_strong" />
+</shape>

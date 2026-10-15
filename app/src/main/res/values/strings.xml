@@ -6,4 +6,302 @@
     <string name="status_unseen">未学习</string>
     <string name="marker_rate_format">掌握率：%1$.1f%%</string>
     <string name="back">返回</string>
+
+    <!-- 游戏模式 v1.1.0 -->
+    <string name="game_title">识字闯关</string>
+    <string name="game_listen_label">听音</string>
+    <string name="game_pinyin_label">看拼音</string>
+    <string name="game_speak_hint">点喇叭,听声音</string>
+    <string name="game_progress_format">%1$d / %2$d</string>
+    <string name="game_skip">跳过 ↻</string>
+    <string name="game_replay">再来一轮 ↻</string>
+    <string name="game_exit">返回主页</string>
+    <string name="game_score_format">答对 %1$d / %2$d</string>
+    <string name="game_stars_3">太棒了!</string>
+    <string name="game_stars_2">真不错!</string>
+    <string name="game_stars_1">加油,继续!</string>
+    <string name="game_stars_0">再试一次</string>
+    <string name="game_result_emoji_3">🎉</string>
+    <string name="game_result_emoji_2">🌟</string>
+    <string name="game_result_emoji_1">💪</string>
+    <string name="game_result_emoji_0">🤔</string>
+    <string name="game_empty_emoji">📖</string>
+    <string name="game_empty_title">还没有学过的字</string>
+    <string name="game_empty_message">先去主页学习几个汉字,再来玩吧!</string>
+    <string name="game_empty_message_en">先去主页学习几个字母或单词，再来玩吧！</string>
+
+    <!-- 词组与例句 v1.2.0 -->
+    <string name="words_label">词组</string>
+    <string name="examples_label">例句</string>
+
+    <!-- v1.3.0 英文学习 -->
+    <string name="language_chinese">中文</string>
+    <string name="language_english">ENGLISH</string>
+    <string name="game_listen_letter_label">听字母</string>
+    <string name="game_listen_word_label">听单词</string>
+    <string name="game_hint_listen_letter">听一听，选出正确的字母</string>
+    <string name="game_hint_listen_word">听一听，选出正确的单词</string>
+    <string name="words_label_en">示例词</string>
+    <string name="examples_label_en">例句</string>
+    <string name="library_all_label">浏览全部字词</string>
+    <string name="export_button_label">导出学习进度（中英）</string>
+    <string name="reset_chinese_label">重置中文进度</string>
+    <string name="reset_english_label">重置英文进度</string>
+    <string name="reset_chinese_done">中文进度已重置</string>
+    <string name="reset_english_done">英文进度已重置</string>
+    <string name="english_status_updated">状态已更新</string>
+
+    <!-- v1.4.0:开机图 -->
+
+    <!-- v1.5.0:无障碍标签(contentDescription) -->
+    <string name="cd_open_menu">打开菜单</string>
+    <string name="cd_close_drawer">关闭菜单</string>
+    <string name="cd_mark_known">标记为认识</string>
+    <string name="cd_mark_unknown">标记为还需要再学一次</string>
+    <string name="cd_skip">换一个字</string>
+    <string name="cd_play_game">进入游戏</string>
+
+    <!-- v1.6.0:主页四个主操作按钮的文字标签(此前只有 emoji,家长不知道哪个是"认识") -->
+    <string name="action_known">认识了</string>
+    <string name="action_unknown">再学一次</string>
+    <string name="action_skip">先跳过</string>
+    <string name="action_game">玩游戏</string>
+
+    <!-- v1.5.0:退出确认(原文案"进度还没保存"与事实不符) -->
+    <string name="exit_dialog_title">退出识字小帮手?</string>
+    <string name="exit_dialog_message">确定要退出吗?下次打开还能接着练。</string>
+    <string name="exit_dialog_confirm">退出</string>
+    <string name="exit_dialog_cancel">再练一会儿</string>
+
+    <!-- v1.5.0:难度文案(主页与游戏页共用,原先各自硬编码) -->
+    <string name="difficulty_easy">简单</string>
+    <string name="difficulty_medium">中等</string>
+    <string name="difficulty_hard">困难</string>
+
+    <!-- v1.5.0:游戏页无障碍与占位文案 -->
+    <string name="cd_speak_prompt">点我听</string>
+    <string name="game_progress_placeholder">1 / 5</string>
+    <string name="game_option_placeholder">字</string>
+    <string name="game_pinyin_placeholder">tiān</string>
+    <string name="game_stars_placeholder">⭐⭐⭐</string>
+    <string name="game_result_title_placeholder">太棒了!</string>
+    <string name="game_score_placeholder">答对 0 / 0</string>
+    <string name="game_emoji_placeholder">🎉</string>
+
+    <!--
+        ============================================================
+        v1.5.0 文案资源化:Kotlin 代码用(带 %1$s / %1$d 占位)
+        ============================================================
+    -->
+
+    <!-- 主页 toast / 提示 -->
+    <string name="toast_known">认识啦!</string>
+    <string name="toast_unknown">没关系,下次记住!</string>
+    <string name="toast_skip">下一个!</string>
+    <string name="toast_play_game">来玩游戏吧!</string>
+    <string name="empty_pool_chinese">当前难度暂无字词,请稍后再试</string>
+    <string name="empty_pool_english">暂无内容,请切换子模式或难度</string>
+    <string name="card_empty_chinese">暂无可测汉字,请调整难度或重置进度</string>
+    <string name="card_empty_english">暂无可测内容</string>
+
+    <!-- 主页顶部标签与统计 -->
+    <string name="card_emoji_idle">💤</string>
+    <string name="top_label_format">%1$s · %2$s</string>
+    <string name="difficulty_format">难度 %1$s</string>
+    <string name="lang_label_chinese">🇨🇳 中文</string>
+    <string name="lang_label_english">🇬🇧 ENGLISH</string>
+    <string name="hint_chinese_format">已认识 %1$d / %2$d · 待巩固 %3$d · 未测 %4$d</string>
+    <string name="hint_english_format">已认识 %1$d / %2$d · 待巩固 %3$d · 未测 %4$d</string>
+
+    <!-- 进度页 -->
+    <string name="label_total_count">字库总数：%1$d</string>
+    <string name="label_known_count">已认识：%1$d</string>
+    <string name="label_unknown_count">待巩固：%1$d</string>
+    <string name="label_mastery_rate">掌握率：%1$.1f%%</string>
+    <string name="label_en_total">总数：%1$d 字母 · %2$d 单词</string>
+    <string name="label_en_known">已认识：%1$d</string>
+    <string name="label_en_unknown">待巩固：%1$d</string>
+    <string name="label_en_mastery">掌握率：%1$.1f%%</string>
+    <string name="pie_center_text">掌握\n按难度</string>
+    <string name="chart_label_mastery">掌握率</string>
+
+    <!-- 设置页 -->
+    <string name="snackbar_export_ok">导出成功</string>
+    <string name="snackbar_export_fail">导出失败：%1$s</string>
+    <string name="overview_chinese_format">中文：%1$d 字</string>
+    <string name="overview_chinese_progress_format">中文已学：%1$d · 待巩固：%2$d</string>
+    <string name="overview_english_format">英文：%1$d 字母 · %2$d 单词</string>
+    <string name="overview_english_progress_format">英文已学：%1$d · 待巩固：%2$d</string>
+
+    <!-- 字库页 -->
+    <string name="dialog_title_chinese">修改状态：%1$s</string>
+    <string name="dialog_title_english">修改状态：%1$s</string>
+    <string name="toast_status_updated_chinese">已更新 %1$s 的状态</string>
+
+    <!-- 游戏页 -->
+    <string name="game_hint_listen">听一听,再选</string>
+
+    <!--
+        ============================================================
+        v1.5.0 布局文案资源化
+        ============================================================
+    -->
+
+    <!-- activity_main.xml:主页占位文案(运行时会被覆盖) -->
+    <string name="top_label_placeholder">🇨🇳 中文 · 难度 简单</string>
+    <string name="main_character_placeholder">汉</string>
+    <string name="main_uppercase_placeholder">A</string>
+    <string name="main_lowercase_placeholder">a</string>
+    <string name="main_pinyin_placeholder">hàn</string>
+    <string name="remaining_hint_placeholder">已认识 0 / 0 · 待巩固 0 · 未测 0</string>
+
+    <!-- activity_main.xml:返回按钮(带箭头,与纯文字的 back 不同) -->
+    <string name="back_with_arrow">← 返回</string>
+
+    <!-- activity_main.xml:抽屉问候与分区标题 -->
+    <string name="drawer_greeting">你好呀!</string>
+    <string name="drawer_sub_greeting">今天一起学点什么呢?</string>
+    <string name="drawer_settings_title">学习设置</string>
+    <string name="drawer_language_label">语言</string>
+    <string name="drawer_difficulty_label">难度</string>
+    <string name="drawer_submode_label">子模式</string>
+    <string name="category_letters_emoji">字母</string>
+    <string name="category_words_emoji">单词</string>
+    <string name="drawer_browse_label">浏览</string>
+
+    <!-- activity_main.xml:抽屉入口卡(标题 + 副标题) -->
+    <string name="nav_progress_title">学习进度</string>
+    <string name="nav_progress_desc">看掌握率、复习列表</string>
+    <string name="nav_library_title">字库浏览</string>
+    <string name="nav_library_desc">字库浏览</string>
+    <!-- v1.6.0:改为运行时按实际数量生成,避免词库扩充后文案过期 -->
+    <string name="nav_library_desc_format">%1$d 字、%2$d 字母、%3$d 单词</string>
+    <string name="nav_settings_title">更多设置</string>
+    <string name="nav_settings_desc">重置进度、导出 CSV</string>
+
+    <!-- activity_progress.xml:标题与空态 -->
+    <string name="progress_chinese_stats_title">中文统计</string>
+    <string name="progress_trend_title">掌握率趋势</string>
+    <string name="range_week">近7天</string>
+    <string name="range_month">近30天</string>
+    <string name="range_year">近一年</string>
+    <string name="progress_trend_empty">暂无历史记录</string>
+    <string name="progress_pie_title">难度掌握分布</string>
+    <string name="progress_pie_empty">暂未识记任何汉字</string>
+    <string name="progress_known_title">当前认识的汉字</string>
+    <string name="progress_known_empty">还没有记录，快开始测一测吧</string>
+    <string name="progress_unknown_title">还需巩固的汉字</string>
+    <string name="progress_unknown_empty">暂时没有待巩固的汉字</string>
+    <string name="progress_en_stats_title">英文统计</string>
+    <string name="progress_en_known_title">当前认识的字母 / 单词</string>
+    <string name="progress_en_known_empty">还没有记录，快开始测一测吧</string>
+    <string name="progress_en_unknown_title">还需巩固的字母 / 单词</string>
+    <string name="progress_en_unknown_empty">暂时没有待巩固的字母 / 单词</string>
+
+    <!-- activity_progress.xml / activity_settings.xml:统计占位文案(运行时会被覆盖) -->
+    <string name="total_count_placeholder">字库总数：0</string>
+    <string name="known_count_placeholder">已认识：0</string>
+    <string name="unknown_count_placeholder">待巩固：0</string>
+    <string name="mastery_rate_placeholder">掌握率：0%</string>
+    <string name="en_total_placeholder">Total: 26 letters · 30 words</string>
+    <string name="en_known_placeholder">已认识：0</string>
+    <string name="en_unknown_placeholder">待巩固：0</string>
+    <string name="en_mastery_placeholder">Mastery: 0%</string>
+    <string name="overview_chinese_placeholder">中文 0 字</string>
+    <string name="overview_english_placeholder">英文：0 字母 · 0 单词</string>
+    <string name="overview_chinese_progress_placeholder">中文已学：0 · 待巩固：0</string>
+    <string name="overview_english_progress_placeholder">英文已学：0 · 待巩固：0</string>
+
+    <!-- activity_settings.xml -->
+    <string name="settings_title">设置中心</string>
+    <string name="settings_data_title">数据与进度</string>
+    <string name="settings_data_desc">导出当前学习记录（中英文）或重置进度，重新开启冒险。</string>
+    <string name="settings_overview_title">字库总览</string>
+    <string name="settings_more_coming">更多功能敬请期待...</string>
+
+    <!-- activity_library.xml -->
+    <string name="library_title">字库总览</string>
+    <string name="filter_title">筛选</string>
+    <string name="filter_all">全部</string>
+    <string name="filter_all_difficulty">全部难度</string>
+
+    <!-- item_character_status.xml / item_english_status.xml -->
+    <string name="char_placeholder">字</string>
+    <string name="pinyin_placeholder">zi</string>
+    <string name="en_char_placeholder">Aa</string>
+    <string name="en_phonetic_placeholder">/eɪ/</string>
+    <string name="status_placeholder">状态</string>
+    <string name="swipe_no_previous">已经是第一张啦</string>
+
+    <!-- marker_progress.xml -->
+    <string name="marker_date_placeholder">10-01</string>
+    <string name="marker_rate_placeholder">掌握率：80%</string>
+
+    <!-- v1.5.0 无障碍:答对/答错语音播报 + 开机图描述 -->
+    <string name="announce_correct">答对了</string>
+    <string name="announce_wrong">答错了,正确答案在这里</string>
+    <string name="cd_splash">开机图</string>
+
+    <!-- v1.6.0:错题本 / 间隔重复 -->
+    <string name="nav_review_title">复习错题</string>
+    <string name="nav_review_desc">按遗忘规律复习错的字</string>
+    <string name="review_empty">太棒了，今天没有要复习的字！</string>
+    <string name="review_mode_hint">错题复习中</string>
+    <string name="review_started_format">错题复习：共 %1$d 个字</string>
+    <string name="review_other_language">错题在另一种语言里，请先切换语言</string>
+
+    <!-- v1.6.0:家长门(Parent Gate)—— 按 Apple Kids 类目要求,重要设置需成人验证 -->
+    <string name="parent_gate_title">请叫爸爸妈妈来</string>
+    <string name="parent_gate_message">这里是家长操作，请大人帮忙完成：\n%1$d + %2$d = ?</string>
+    <string name="parent_gate_speech">这个要请爸爸妈妈来哦</string>
+    <string name="parent_gate_hint">输入答案</string>
+    <string name="parent_gate_confirm">确定</string>
+    <string name="parent_gate_cancel">取消</string>
+    <string name="parent_gate_wrong">答错了，请家长再试一次</string>
+
+    <!-- v1.6.0:孩子档案(P2-2 多用户档案) -->
+    <string name="profile_section_title">孩子档案</string>
+    <string name="profile_section_desc">每个孩子有独立的学习进度。切换档案后，认识 / 待巩固 / 错题本都会换成该孩子的记录。</string>
+    <string name="profile_add">新增档案</string>
+    <string name="profile_rename">重命名</string>
+    <string name="profile_delete">删除档案</string>
+    <string name="profile_add_title">新增孩子档案</string>
+    <string name="profile_rename_title">重命名档案</string>
+    <string name="profile_name_hint">例如：小明</string>
+    <string name="profile_created_format">已创建档案「%1$s」</string>
+    <string name="profile_renamed_format">已改名为「%1$s」</string>
+    <string name="profile_switched_format">已切换到「%1$s」</string>
+    <string name="profile_delete_title">删除档案「%1$s」？</string>
+    <string name="profile_delete_message">该孩子的全部学习进度（认识 / 待巩固 / 错题本）都会一起删除，且无法恢复。</string>
+    <string name="profile_delete_confirm">删除</string>
+    <string name="profile_deleted_format">已删除档案「%1$s」</string>
+    <string name="profile_delete_last">至少要保留一个档案</string>
+    <string name="profile_need_name">请输入名字</string>
+    <string name="profile_cancel">取消</string>
+
+    <!-- v1.6.0:字库搜索(P2-3) -->
+    <string name="library_search_hint">搜索汉字 / 拼音 / 单词</string>
+    <string name="library_search_count">找到 %1$d 条</string>
+    <string name="library_search_empty">没有匹配的条目</string>
+
+    <!-- v1.6.0:CSV 导入(P2-3) -->
+    <string name="import_button_label">导入学习进度（CSV）</string>
+    <string name="import_preview_title">确认导入</string>
+    <string name="import_preview_message">将从文件导入到当前档案「%1$s」：\n\n中文：认识 %2$d · 不认识 %3$d\n英文：认识 %4$d · 不认识 %5$d\n\n导入方式是「合并」：只应用文件里明确标记的记录，不会清除你现有的进度。</string>
+    <string name="import_confirm">导入</string>
+    <string name="import_cancel">取消</string>
+    <string name="import_done_format">导入完成：共应用 %1$d 条记录</string>
+    <string name="import_empty">文件里没有可识别的进度记录</string>
+    <string name="import_fail_format">导入失败：%1$s</string>
+    <string name="import_skipped_format">%1$d 行无法识别，已跳过</string>
+    <string name="tts_no_engine">手机里没有语音引擎，装一个（如华为语音引擎）就能听到发音</string>
+    <string name="tts_no_chinese">手机里的语音引擎缺少中文语音，下载后就能听到发音</string>
+    <string name="tts_init_failed">语音引擎初始化失败，请到系统设置里检查</string>
+    <string name="tts_not_ready">语音还没准备好，请稍后再试</string>
+    <string name="tts_open_settings">去设置</string>
+    <string name="tts_no_settings">打不开系统设置</string>
+    <string name="tts_diagnose_label">语音诊断</string>
+    <string name="tts_diagnose_title">语音诊断</string>
+    <string name="tts_diagnose_redetect">重新检测</string>
+    <string name="tts_diagnose_redetecting">正在重新检测，请稍候再打开查看</string>
 </resources>

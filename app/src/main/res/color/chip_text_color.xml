@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- v1.6.0:选中 = 深蓝字(淡蓝底上必须用深色字,原来用白字会看不清) -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/white" android:state_checked="true" />
-    <item android:color="@color/deep_blue" />
+    <item android:color="@color/deep_blue" android:state_checked="true" />
+    <item android:color="@color/gray_dark" />
 </selector>
